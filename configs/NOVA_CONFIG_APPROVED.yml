@@ -1,0 +1,37 @@
+metadata:
+  name: "NOVA Governance Config — Approved v0.1"
+  spec_version: 0.1
+  approved: true
+  approved_on: "2025-09-01"
+  depends_on:
+    core_tag: "v0.1.0-core-scaffold"
+    data_tag: "v0.1.0-data-scaffold"
+  notes: "Pure floor policy; LCR invariant 1.00; fee-aware execution triggers."
+
+floor_policy:
+  mode: pure_no_fees
+  lcr_min: 1.00
+  lcr_target: 1.00
+  defended_quantity: circulating_supply
+  public_note: >
+    Floor excludes gas/platform fees; execution triggers subtract venue frictions.
+    External venues may print below floor due to fees; own platform typically closer to floor.
+
+execution_friction:
+  discovery_mode: true
+  trigger_formula: "F_pure - (fee_fix + fee_pct*F_pure + gas + slippage)"
+  venues: []  # to be populated after discovery phase
+
+governance_process:
+  change_control:
+    - changes require simulation evidence and ethics review
+    - configs are immutable once tagged; new tags reflect updates
+  oracle_committee:
+    min_agree: 2
+    tolerance_pct: "to_be_empirical"
+    staleness_sec: "to_be_empirical"
+
+disclosure:
+  transparency:
+    - publish public note on fee policy and trigger logic
+    - publish audit logs for each decision, with links to results
