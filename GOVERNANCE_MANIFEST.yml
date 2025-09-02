@@ -1,0 +1,28 @@
+version: 0.1
+description: >
+  Master manifest for AstroCrown ACS Governance repository.
+  Links governance configs and ethics to exact tags in related repos.
+
+tags:
+  core_tag: "v0.1.0-core-scaffold"
+  data_tag: "v0.1.0-data-scaffold"
+  results_tag: "v0.1.0-results-scaffold"
+  benchmarks_tag: "v0.1.0-benchmarks-scaffold"
+  docs_tag: "v0.1.0-docs-scaffold"
+
+files:
+  configs:
+    - file: "configs/NOVA_CONFIG_APPROVED.yml"
+      approved: true
+      approved_on: "2025-09-01"
+      depends_on:
+        core_tag: "v0.1.0-core-scaffold"
+        data_tag: "v0.1.0-data-scaffold"
+  ethics:
+    - file: "ethics_audit/ETHICAL_CLAUSES.md"
+      version: "v0.1"
+      notes: "Ethical invariants; transparency; change control."
+
+notes:
+  - This manifest provides cross-repo navigation and tag-anchored traceability.
+  - Future governance changes must reference exact code/data/results/benchmarks tags.
