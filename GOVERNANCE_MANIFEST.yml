@@ -6,6 +6,7 @@ description: >
 tags:
   core_tag: "v0.1.0-core-scaffold"
   data_tag: "v0.1.0-data-scaffold"
+  governance_tag: "v0.1.0-governance-scaffold"
   results_tag: "v0.1.0-results-scaffold"
   benchmarks_tag: "v0.1.0-benchmarks-scaffold"
   docs_tag: "v0.1.0-docs-scaffold"
